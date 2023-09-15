@@ -1,0 +1,42 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Pricing Table</title>
+    <!-- Include Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/mystyle.css' %}">
+
+</head>
+<body>
+    <div class="container">
+        <h1>Product Price</h1>
+        <div class="row">
+            {% for plan in subscription_plans %}
+            <div class="col-md-4">
+                <div class="card mb-4 box-shadow">
+                    <div class="card-header">
+                        <h4 class="my-0 font-weight-normal">{{ plan.name }}</h4>
+                    </div>
+                    <div class="card-body">
+                        <h1 class="card-title pricing-card-title">${{ plan.price }}</h1>
+                        <p>Ratings: {{ plan.ratings }}/5</p>
+                        <ul class="list-unstyled mt-3 mb-4">
+                            <li>{{ plan.features }}</li>
+                        </ul>
+                    </div>
+                </div>
+                <input type="hidden" name="plan_id" value="{{ plan.id }}">
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+
+    
+
+    <!-- Include Bootstrap JS and jQuery -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

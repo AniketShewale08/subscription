@@ -1,0 +1,8 @@
+.star-rating {
+    font-size: 20px;
+    color: #FFD700;
+}
+.empty-star {
+    font-size: 20px;
+    color: #ccc;
+}
